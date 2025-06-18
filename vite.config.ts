@@ -4,6 +4,7 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 //this is a comment for testing
+//this is another comment for testing from new featurebranch 
 
 export default defineConfig({
   plugins: [
