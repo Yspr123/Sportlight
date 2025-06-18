@@ -3,7 +3,11 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
+
 //this is a comment coming from main branch
+
+//this is another comment for testing coming from the feature branch
+
 
 export default defineConfig({
   plugins: [
