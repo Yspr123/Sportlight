@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 export const ProfileWrapperSection = (): JSX.Element => {
   // Data for athlete profiles
@@ -8,37 +9,37 @@ export const ProfileWrapperSection = (): JSX.Element => {
       id: 1,
       name: "Emma Hayes",
       sport: "Track and Field",
-      image: "..//figmaAssets/depth-7--frame-0-3.png",
+      image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: 2,
       name: "Liam Carter",
       sport: "Basketball",
-      image: "..//figmaAssets/depth-7--frame-0-4.png",
+      image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: 3,
       name: "Chloe Bennett",
       sport: "Swimming",
-      image: "..//figmaAssets/depth-7--frame-0-5.png",
+      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: 4,
       name: "Owen Harper",
       sport: "Soccer",
-      image: "..//figmaAssets/depth-7--frame-0-6.png",
+      image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: 5,
       name: "Ava Foster",
       sport: "Gymnastics",
-      image: "..//figmaAssets/depth-7--frame-0-7.png",
+      image: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80",
     },
     {
       id: 6,
       name: "Noah Reed",
       sport: "Tennis",
-      image: "..//figmaAssets/depth-7--frame-0-8.png",
+      image: "https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80",
     },
   ];
 
@@ -87,6 +88,7 @@ const AthleteProfileCard = ({
   sport,
   image,
 }: AthleteProfileCardProps) => {
+  const [followed, setFollowed] = useState(false);
   return (
     <Card className="flex flex-col w-44 border-none">
       <CardContent className="flex flex-col items-start gap-3 p-0">
@@ -101,6 +103,13 @@ const AthleteProfileCard = ({
           <p className="[font-family:'Lexend',Helvetica] font-normal text-[#9baaba] text-sm tracking-[0] leading-[21px] w-full">
             {sport}
           </p>
+          <Button
+            variant={followed ? "default" : "outline"}
+            className={`h-7 px-3 mt-2 text-xs rounded-xl ${followed ? "bg-[#0c7ff2] text-white" : "bg-[#283038] text-white border-none"}`}
+            onClick={() => setFollowed((v) => !v)}
+          >
+            {followed ? "Following" : "Follow"}
+          </Button>
         </div>
       </CardContent>
     </Card>

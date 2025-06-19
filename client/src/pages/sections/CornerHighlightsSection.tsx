@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const CornerHighlightsSection = (): JSX.Element => {
+  const [followed, setFollowed] = useState(false);
   // User data that can be easily modified or expanded
   const userData = {
     name: "Chloe Bennett",
     activity: "Swimming",
-    profileImage: "..//figmaAssets/depth-6--frame-0-3.png",
+    profileImage:
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=100&q=80",
   };
 
   return (
@@ -34,11 +36,16 @@ export const CornerHighlightsSection = (): JSX.Element => {
         </div>
 
         <Button
-          variant="outline"
-          className="h-8 px-4 py-0 bg-[#283038] text-white border-none rounded-xl hover:bg-[#3a4550]"
+          variant={followed ? "default" : "outline"}
+          className={`h-8 px-4 py-0 rounded-xl ${
+            followed
+              ? "bg-[#0c7ff2] text-white"
+              : "bg-[#283038] text-white border-none"
+          }`}
+          onClick={() => setFollowed((v) => !v)}
         >
           <span className="text-sm font-medium font-['Lexend',Helvetica]">
-            Follow
+            {followed ? "Following" : "Follow"}
           </span>
         </Button>
       </CardContent>
