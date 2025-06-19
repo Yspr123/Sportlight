@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const PersonalizedRecommendationsSection = (): JSX.Element => {
+  const [followed, setFollowed] = useState(false);
   // User data that can be easily modified or expanded
   const userData = {
     name: "Emma Hayes",
     activity: "Track and Field",
-    profileImage: "..//figmaAssets/depth-6--frame-0-1.png",
+    profileImage:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=100&q=80",
   };
 
   return (
@@ -34,11 +36,16 @@ export const PersonalizedRecommendationsSection = (): JSX.Element => {
         </div>
 
         <Button
-          variant="outline"
-          className="h-8 px-4 bg-[#283038] text-white border-0 rounded-xl hover:bg-[#3a4551] transition-colors"
+          variant={followed ? "default" : "outline"}
+          className={`h-8 px-4 rounded-xl ${
+            followed
+              ? "bg-[#0c7ff2] text-white"
+              : "bg-[#283038] text-white border-0"
+          }`}
+          onClick={() => setFollowed((v) => !v)}
         >
           <span className="font-['Lexend',Helvetica] font-medium text-sm">
-            Follow
+            {followed ? "Following" : "Follow"}
           </span>
         </Button>
       </CardContent>
